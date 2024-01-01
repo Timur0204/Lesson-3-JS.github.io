@@ -1,0 +1,50 @@
+
+
+   .testing_header {
+    text-justify: auto;
+    display: flex;
+    justify-content: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+   }
+
+   .label {
+    width: 50vw;
+   }
+
+   button {
+    background-color: indianred;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    padding: 5px 30px 8px 30px;
+   }
+
+   footer {
+    justify-content: center;
+   }
+
+   @media(min-width: 390px) {
+    .label {
+        width: 30vw;
+       }
+   }
+
+   @media(min-width: 546px) {
+    .label {
+        width: 20vw;
+       }
+   }
+
+   @media(min-width: 883px) {
+    .label {
+        width: 10vw;
+       }
+   }
+
+   @media(min-width: 1024px) {
+    button:hover {
+        background-color: rgb(168, 70, 70);
+        color: rgb(249, 236, 236)
+    }
+   }
