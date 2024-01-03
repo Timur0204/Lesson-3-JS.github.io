@@ -1,35 +1,44 @@
-   
-   function answer() {
-    let result = document.querySelector('#result');
-    let arr = [143, 1083, 874, 4186, 2436, 2970, 4851, 2288, 4042, 910, 1850, 5888];
 
-    let marks = 0;
 
-    let examples = [
-        '#firstExample', '#secondExample', '#thirdExample', '#fourthExample',
-        '#fifthExample', '#sixthExample', '#seventhExample', '#eighthExample',
-        '#ninthExample', '#tenthExample', '#eleventhExample', '#twelfthExample'
-    ];
-    result.innerHTML = '';
+    function gen() {
+        let n = Math.random();
+        n = Math.floor(n * 90) + 10;
+        return n;
+    }
 
-    for (let i = 0; i < arr.length; i++) {
-        let currentExample = document.querySelector(examples[i]).value;
+    let marksSum = 0;
+    let answerDetails = "";
 
-        if (currentExample == arr[i]) {
-            result.innerHTML += `Это число ${arr[i]}, вы правы | + 1 балл</br>`;
-            marks++;
-        } else if (isNaN(currentExample) || currentExample === "") {
-            result.innerHTML += `Введите число | 0 баллов</br>`;
+    for (let i = 1; i <= 12; i++) {
+        let num1 = gen();
+        let num2 = gen();
+        let userAnswer = +prompt(`Пример ${i}. Сколько будет ${num1} * ${num2}?`);
+    
+        let correctAnswer = num1 * num2;
+    
+        if (userAnswer === correctAnswer) {
+            alert(`Да, это число ${correctAnswer} | + 1 балл`);
+            marksSum++;
+        } else if(isNaN(userAnswer) || userAnswer == '') {
+            alert('Надо вводить число | + 0 баллов');
+            break;
         } else {
-            result.innerHTML += `Это число ${arr[i]}, вы неправы | 0 баллов</br>`;
+            alert(`Нет, это число ${correctAnswer} | + 0 баллов`);
         }
+
+        answerDetails += `Пример ${i}: ${num1} * ${num2} = ${correctAnswer}. Ваш ответ: ${userAnswer}</br>`;
+
     }
 
-    if(marks == 1) {
-        result.innerHTML += `Вы набрали ${marks} балл из 12</br>`;
-    } else if(marks >= 2 && marks <= 4) {
-        result.innerHTML += `Вы набрали ${marks} балла из 12</br>`;
-    } else if(marks <= 12 || marks == 0) {
-        result.innerHTML += `Вы набрали ${marks} баллов из 12</br>`;
+    if(marksSum == 1) {
+        alert(`Ваша оценка: ${marksSum} балл.`);
+    } else if(marksSum >= 2 && marksSum <= 4) {
+        alert(`Ваша оценка: ${marksSum} балла.`);
+    } else {
+        alert(`Ваша оценка: ${marksSum} баллов.`);
     }
-}
+
+    document.write(`<h1>Ответы:</h1>${answerDetails}</br><h2>Ваша оценка: ${marksSum}</h2>`);
+
+
+
